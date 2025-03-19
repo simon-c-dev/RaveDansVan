@@ -1,7 +1,7 @@
 ﻿<template>
-  <Disclosure as="nav" class="bg-transparent w-full fixed top-0 left-0 z-50" v-slot="{ open }">
+  <Disclosure as="nav" :class="['bg-transparent w-full sticky top-0 left-0 z-50 transition-all duration-300', { '!backdrop-blur-md': isScrolled, 'py-4': !isScrolled, 'py-1': isScrolled }]" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="relative flex h-16 items-center justify-between">
+      <div class="relative flex items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <DisclosureButton class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <DisclosurePanel class="sm:hidden">
+    <DisclosurePanel class="sm:hidden absolute top-full left-0 w-full bg-surface-950 z-40">
       <div class="space-y-1 px-2 pt-2 pb-3">
         <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href"
                           class="text-gray-300 hover:bg-gray-700 hover:text-white block
@@ -50,6 +50,7 @@
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import {onMounted, onUnmounted, ref} from "vue";
 
 const navigation = [
   { name: 'Événements', href: '#' },
@@ -63,6 +64,20 @@ const social = [
   {name: 'Shopify', href: 'https://www.shopify.com', icon: "fa-brands fa-shopify"},
   {name: 'Patreon', href: 'https://www.patreon.com', icon: "fa-brands fa-patreon"},
 ]
+
+const isScrolled = ref(false)
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 </script>
 
