@@ -20,7 +20,7 @@
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
               <a v-for="item in navigation" :key="item.name" :href="item.href"
-                 class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md
+                 class="nav-link text-gray-300 hover:text-white
                   px-3 py-2 text-sm font-medium">{{ item.name }}
               </a>
             </div>
@@ -84,5 +84,28 @@ onUnmounted(() => {
 <style scoped>
 #rdv{
   font-family: saira,serif;
+}
+
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  visibility: hidden; /* Hide by default */
+}
+
+.nav-link:hover::after {
+  transform: translateX(0);
+  visibility: visible; /* Show on hover */
 }
 </style>
