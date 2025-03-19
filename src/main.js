@@ -13,7 +13,20 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import {appState, useLayout} from "./composables/useLayout";
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
+/* add icons to the library */
+library.add(fas, fab)
+
 const app = createApp(App);
+
+app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(PrimeVue, {
 	theme: {
@@ -35,6 +48,6 @@ app.directive("styleclass", StyleClass);
 // Set dark mode by default
 appState.value.darkMode = true;
 document.documentElement.classList.add("p-dark");
-
+useLayout().updateColors("primary", "silver");
 
 app.mount("#app");
