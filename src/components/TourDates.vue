@@ -17,9 +17,10 @@ const formatDate = (dateString) => {
 </script>
 
 <template>
-  <div class="tour-dates-container text-center p-4">
-    <h1 class="text-2xl mb-5">Tour Dates</h1>
-    <div class="flex flex-col items-center">
+  <div class="tour-dates-container text-center p-4 z-10">
+    <h1 class="text-2xl mb-4 pb-4"><span class="font-semibold">Prochains</span> <span id="rdv" class="text-primary-600 text-3xl">RDV</span></h1>
+    <hr class="mx-auto w-1/2 border-1 border-primary-600"/>
+    <div class="flex flex-col items-center pt-4">
       <div v-for="(concert, index) in concerts" :key="concert.date" class="tour-date w-full max-w-4xl relative">
         <div class="date-info">
           <div class="day">{{ formatDate(concert.date)[2] }}</div>

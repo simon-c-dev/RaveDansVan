@@ -1,12 +1,12 @@
 ﻿<template>
-  <Disclosure as="nav" :class="['bg-transparent w-full sticky top-0 left-0 z-50 transition-all duration-300', { '!backdrop-blur-md': isScrolled, 'py-4': !isScrolled, 'py-1': isScrolled }]" v-slot="{ open }">
+  <Disclosure as="nav" :class="['w-full sticky top-0 left-0 z-50 transition-all duration-300 bg-surface-900',
+  { 'py-4': !isScrolled, 'py-1' : isScrolled }]" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <DisclosureButton class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400
-          hover:bg-gray-700 hover:text-white
-          focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
+          hover:bg-gray-700 hover:text-white">
             <span class="absolute -inset-0.5" />
             <span class="sr-only">Open main menu</span>
             <Bars3Icon v-if="!open" class="block size-6" aria-hidden="true" />
@@ -15,7 +15,7 @@
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex shrink-0 items-center">
-            <span class="text-2xl sm:text-4xl text-primary ml-2" id="rdv">RDV</span>
+            <span class="text-2xl sm:text-4xl text-primary-600 ml-2" id="rdv">RDV</span>
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
@@ -36,11 +36,11 @@
       </div>
     </div>
 
-    <DisclosurePanel class="sm:hidden absolute top-full left-0 w-full bg-surface-950 z-40">
-      <div class="space-y-1 px-2 pt-2 pb-3">
+    <DisclosurePanel class="sm:hidden absolute top-full left-0 w-full z-40 bg-surface-900 flex justify-center">
+      <div class="space-y-1 px-2 pt-2 pb-3 flex flex-col items-center">
         <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href"
                           class="text-gray-300 hover:bg-gray-700 hover:text-white block
-                          rounded-md px-3 py-2 text-base font-medium']">{{ item.name }}
+                          rounded-md px-3 py-2 text-base font-medium">{{ item.name }}
         </DisclosureButton>
       </div>
     </DisclosurePanel>
@@ -82,10 +82,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-#rdv{
-  font-family: saira,serif;
-}
-
 .nav-link {
   position: relative;
   overflow: hidden;
@@ -107,5 +103,10 @@ onUnmounted(() => {
 .nav-link:hover::after {
   transform: translateX(0);
   visibility: visible; /* Show on hover */
+}
+
+.backdrop-blur {
+  z-index: 50;
+  backdrop-filter: blur(10px);
 }
 </style>

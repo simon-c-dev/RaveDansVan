@@ -1,6 +1,8 @@
 <template>
-  <div class="card self-center sm:w-2xl ease-in-out">
-    <Timeline :value="computedEvents" align="alternate" class="customized-timeline">
+  <div class="card self-center sm:w-2xl ease-in-out z-10 text-center">
+    <h1 class="text-2xl mb-4 pb-4"><span class="font-semibold">Prochains</span> <span id="rdv" class="text-primary-600 text-3xl">RDV</span></h1>
+    <hr class="mx-auto w-1/2 border-1 border-primary-600"/>
+    <Timeline :value="computedEvents" align="alternate" class="customized-timeline pt-8">
       <template #marker="slotProps">
         <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm animate-fade-in"
               :style="{ backgroundColor: slotProps.item.color }">
@@ -31,8 +33,8 @@ import { format, isBefore, parseISO, isEqual, startOfDay } from "date-fns";
 const events = ref([
   { venue: 'Hollywood Bowl', city: 'Los Angeles', state: 'CA', date: '2023-11-01' },
   { venue: 'MGM Grand', city: 'Las Vegas', state: 'NV', date: '2023-11-05' },
-  { venue: 'Austin City Limits', city: 'Austin', state: 'TX', date: '2025-03-19' },
-  { venue: 'Madison Square Garden', city: 'New York', state: 'NY', date: '2025-03-20' }
+  { venue: 'Austin City Limits', city: 'Austin', state: 'TX', date: '2025-03-22' },
+  { venue: 'Madison Square Garden', city: 'New York', state: 'NY', date: '2025-03-25' }
 ]);
 
 const today = new Date();
@@ -59,7 +61,7 @@ const computedEvents = computed(() => {
       ...event,
       date: formattedDate,
       icon: isPast ? 'pi pi-check' : isToday ? 'pi pi-calendar' : 'pi pi-clock',
-      color: isPast ? '#9E9E9E' : isToday ? '#FFEB3B' : '#4CAF50',
+      color: isPast ? '#9E9E9E' : isToday ? '#7c3aed' : '#4CAF50',
       eventClass: isPast ? 'past-event' : isToday ? 'today-event' : 'future-event'
     };
   });
@@ -86,13 +88,16 @@ const computedEvents = computed(() => {
   animation: slideUp 1s ease-in-out;
 }
 
-/* Event Styling */
 .past-event {
-  border: 2px solid #9E9E9E;
+  border: 2px solid #555555; /* Lighter but darker gray */
 }
 
 .today-event {
-  border: 2px solid #FFEB3B;
+  border: 2px solid #7c3aed;
+}
+
+.future-event {
+  border: 2px solid #FFFFFF; /* Add white border for upcoming events */
 }
 
 /* Responsive Fix */

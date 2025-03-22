@@ -48,6 +48,6 @@ app.directive("styleclass", StyleClass);
 // Set dark mode by default
 appState.value.darkMode = true;
 document.documentElement.classList.add("p-dark");
-useLayout().updateColors("primary", "silver");
+useLayout().updateColors("primary", "violet");
 
 app.mount("#app");
