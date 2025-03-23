@@ -65,7 +65,7 @@
           <div class="absolute inset-px rounded-lg bg-surface-900 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]" />
           <div class="relative text-center flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
             <a href="https://www.shopify.com" target="_blank" class="pb-3 sm:pb-4 px-8 pt-4 sm:px-10 sm:pt-6 flex flex-col h-full shopify-image">
-              <p class="mt-2 text-lg md:text-2xl font-medium tracking-tight text-surface-200 max-lg:text-center">Boutique RDV Radio</p>
+              <p class="mt-2 text-lg md:text-2xl font-medium tracking-tight text-surface-200 max-lg:text-center">Boutique RDV</p>
               <p class="mt-2 max-w-lg text-sm sm:text-base lg:text-lg text-surface-200 max-lg:text-center">La musique se porte aussi ! Explore notre collection sur Shopify</p>
               <carousel-tee/>
             </a>
@@ -97,5 +97,11 @@ const links = ref([
     height: auto; /* Garde le ratio de l'image */
     margin: 0 auto; /* Centre l'image */
   }
+
+  .p-carousel-prev,
+  .p-carousel-next {
+    display: none !important;
+  }
+
 }
 </style>

@@ -21,10 +21,11 @@ import ScrollToTop from "./components/sub/ScrollToTop.vue";
   <AppTopBar/>
     <div class="bg-surface-50 dark:bg-surface-950 min-h-screen p-8 flex flex-col gap-6">
       <AllInOne/>
+      <MediaCarousel/>
 <!--      <TourDates/>-->
       <TourDatesTimeline/>
 <!--      <MediaGallery/>-->
-      <MediaCarousel/>
+
       <OurLinks/>
     </div>
   <Footer/>

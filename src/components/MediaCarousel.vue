@@ -9,8 +9,21 @@ const images = Array.from({ length: 3 }, (_, index) => ({
 
 const carouselConfig = {
   height: 400,
-  itemsToShow: 2,
   wrapAround: true,
+  breakpoints: {
+    640: {
+      itemsToShow: 1,
+    },
+    768: {
+      itemsToShow: 1.25,
+    },
+    1024: {
+      itemsToShow: 1.5,
+    },
+    1280: {
+      itemsToShow: 2,
+    },
+  },
 }
 </script>
 
@@ -31,6 +44,11 @@ const carouselConfig = {
 </template>
 
 <style>
+@media (max-width: 640px) {
+  .carousel__next, .carousel__prev {
+    display: none !important;
+  }
+}
 :root {
   --carousel-transition: 300ms;
   --carousel-opacity-inactive: 0.7;

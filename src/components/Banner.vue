@@ -8,7 +8,7 @@
     </div>
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
       <p class="text-sm/6 text-gray-900">
-        <strong class="font-semibold">Prochaine escale</strong><svg viewBox="0 0 2 2" class="mx-2 inline size-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Denver Rejoignez-nous le 7 juin pour un show légendaire !
+        <strong class="font-semibold">Prochaine escale</strong><svg viewBox="0 0 2 2" class="mx-2 inline size-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg><span class="underline font-bold">Denver</span> Rejoignez-nous le 7 juin pour un show légendaire !
       </p>
     </div>
     <div class="flex flex-1 justify-end">
